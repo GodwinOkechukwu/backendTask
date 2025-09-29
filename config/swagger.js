@@ -1,9 +1,8 @@
 import swaggerUi from "swagger-ui-express";
-// import swaggerJsdoc from "swagger-jsdoc";
-import express from "express";
 import swaggerJSDoc from "swagger-jsdoc";
+import dotenv from "dotenv";
 
-const app = express();
+dotenv.config();
 const options = {
   definition: {
     openapi: "3.0.0",
@@ -25,7 +24,7 @@ const options = {
 
     servers: [
       {
-        url: "http://localhost:5000/api",
+        url: process.env.BASE_URL || "http://localhost:5000/api",
       },
     ],
   },
